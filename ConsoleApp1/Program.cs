@@ -9,14 +9,15 @@ namespace ConsoleApp1
 {
     class Program
     {
-        public static void main(String args[])
+        static void Main(String[] args)
         {
             QLearning ql = new QLearning();
 
             ql.init();
-            ql.calculateQ();
-            ql.printQ();
-            ql.printPolicy();
+            Console.WriteLine("teste");
+            //ql.calculateQ();
+            //ql.printQ();
+            //ql.printPolicy();
         }
     }
 }
