@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,24 +19,23 @@ namespace ConsoleApp1
         private int reward = 100;
         private int penalty = -10;
 
-        private char[][] maze;  // Maze read from file
-        private int[][] R;       // Reward lookup
-        private double[][] Q;    // Q learning
+        private char[,] maze;  // Maze read from file
+        private int[,] R;       // Reward lookup
+        private double[,] Q;    // Q learning
 
-        QLearning()
+        public QLearning()
         {
             statesCount = mazeHeight * mazeWidth;
         }
 
         public void init()
         {
-            // File file =  (@"resources\\maze.txt");
-            String[] file = File.ReadAllLines(@"resources\\maze.txt");
+            String[] file = File.ReadAllLines(@"maze.txt");
             String teste = file[0];
 
-            R = new int[statesCount][statesCount];
-            Q = new double[statesCount][statesCount];
-            maze = new char[mazeHeight][mazeWidth];
+            R = new int[statesCount,statesCount];
+            Q = new double[statesCount,statesCount];
+            maze = new char[mazeHeight,mazeWidth];
 
             int i = 0;
             int j = 0;
@@ -45,7 +45,7 @@ namespace ConsoleApp1
                 if (!teste[l].Equals("0") && !teste[l].Equals("F") && !teste[l].Equals("X"))
                     continue;
 
-                maze[i][j] = teste[i];
+                maze[i,j] = teste[i];
                 j++;
                 if (j == mazeWidth)
                 {
@@ -66,11 +66,11 @@ namespace ConsoleApp1
                 // Fill in the reward matrix with -1
                 for (int s = 0; s < statesCount; s++)
                 {
-                    R[k][s] = -1;
+                    R[k,s] = -1;
                 }
 
                 // If not in final state or a wall try moving in all directions in the maze
-                if (maze[i][j] != 'F')
+                if (maze[i,j] != 'F')
                 {
 
                     // Try to move left in the maze
@@ -78,17 +78,17 @@ namespace ConsoleApp1
                     if (goLeft >= 0)
                     {
                         int target = i * mazeWidth + goLeft;
-                        if (maze[i][goLeft] == '0')
+                        if (maze[i,goLeft] == '0')
                         {
-                            R[k][target] = 0;
+                            R[k,target] = 0;
                         }
-                        else if (maze[i][goLeft] == 'F')
+                        else if (maze[i,goLeft] == 'F')
                         {
-                            R[k][target] = reward;
+                            R[k,target] = reward;
                         }
                         else
                         {
-                            R[k][target] = penalty;
+                            R[k,target] = penalty;
                         }
                     }
 
@@ -97,17 +97,17 @@ namespace ConsoleApp1
                     if (goRight < mazeWidth)
                     {
                         int target = i * mazeWidth + goRight;
-                        if (maze[i][goRight] == '0')
+                        if (maze[i,goRight] == '0')
                         {
-                            R[k][target] = 0;
+                            R[k,target] = 0;
                         }
-                        else if (maze[i][goRight] == 'F')
+                        else if (maze[i,goRight] == 'F')
                         {
-                            R[k][target] = reward;
+                            R[k,target] = reward;
                         }
                         else
                         {
-                            R[k][target] = penalty;
+                            R[k,target] = penalty;
                         }
                     }
 
@@ -116,17 +116,17 @@ namespace ConsoleApp1
                     if (goUp >= 0)
                     {
                         int target = goUp * mazeWidth + j;
-                        if (maze[goUp][j] == '0')
+                        if (maze[goUp,j] == '0')
                         {
-                            R[k][target] = 0;
+                            R[k,target] = 0;
                         }
-                        else if (maze[goUp][j] == 'F')
+                        else if (maze[goUp,j] == 'F')
                         {
-                            R[k][target] = reward;
+                            R[k,target] = reward;
                         }
                         else
                         {
-                            R[k][target] = penalty;
+                            R[k,target] = penalty;
                         }
                     }
 
@@ -135,22 +135,32 @@ namespace ConsoleApp1
                     if (goDown < mazeHeight)
                     {
                         int target = goDown * mazeWidth + j;
-                        if (maze[goDown][j] == '0')
+                        if (maze[goDown,j] == '0')
                         {
-                            R[k][target] = 0;
+                            R[k,target] = 0;
                         }
-                        else if (maze[goDown][j] == 'F')
+                        else if (maze[goDown,j] == 'F')
                         {
-                            R[k][target] = reward;
+                            R[k,target] = reward;
                         }
                         else
                         {
-                            R[k][target] = penalty;
+                            R[k,target] = penalty;
                         }
                     }
                 }
             }
-            Console.WriteLine(R);
+            
+            for(int z = 0; z < statesCount - 1; z++)
+            {
+                for(int x = 0; x < statesCount - 1; x++)
+                {
+                    Console.Write(R[z, x].ToString() + " ");
+                }
+                Console.WriteLine("\n");
+            }
+
+
 
         }
     }
