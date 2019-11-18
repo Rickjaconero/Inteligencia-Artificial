@@ -31,7 +31,6 @@ namespace ConsoleApp1
         public void init()
         {
             String[] file = File.ReadAllLines(@"maze.txt");
-            String teste = file[0];
 
             R = new int[statesCount,statesCount];
             Q = new double[statesCount,statesCount];
@@ -40,18 +39,22 @@ namespace ConsoleApp1
             int i = 0;
             int j = 0;
 
-            for (int l = 0; l < teste.Length; l++)
+            foreach (String linha in file)
             {
-                if (!teste[l].Equals("0") && !teste[l].Equals("F") && !teste[l].Equals("X"))
-                    continue;
-
-                maze[i,j] = teste[i];
-                j++;
-                if (j == mazeWidth)
+                for (int l = 0; l < linha.Length; l++)
                 {
-                    j = 0;
-                    i++;
+                    if (!linha[l].Equals('0') && !linha[l].Equals('F') && !linha[l].Equals('X'))
+                        continue;
+                    if (linha[l].Equals('0'))
+                        maze[i, j] = '0';
+                    if (linha[l].Equals('F'))
+                        maze[i, j] = 'F';
+                    if (linha[l].Equals('X'))
+                        maze[i, j] = 'X';
+                    j++;
                 }
+                j = 0;
+                i++;
             }
 
             // We will navigate through the reward matrix R using k index
@@ -273,12 +276,12 @@ namespace ConsoleApp1
         public void printQ()
         {
             Console.WriteLine("Q matrix");
-            for (int i = 0; i < Q.Length; i++)
+            for (int i = 0; i < (Q.Length / 9); i++)
             {
                 Console.WriteLine("From state " + i + ":  ");
-                for (int j = 0; j < Q.Length; j++)
+                for (int j = 0; j < (Q.Length/9); j++)
                 {
-                    Console.WriteLine(String.Format("{0:0.00}", Q[i,j]) + " ");
+                    Console.Write(String.Format("{0:0.00}", Q[i,j]) + " ");
                 }
                 Console.WriteLine();
             }

@@ -16,8 +16,14 @@ namespace ConsoleApp1
             ql.init();
             Console.WriteLine("teste");
             ql.calculateQ();
+            Console.WriteLine("teste");
+            Console.ReadLine();
             ql.printQ();
+            Console.WriteLine("teste");
+            Console.ReadLine();
             ql.printPolicy();
+            Console.WriteLine("teste");
+            Console.ReadLine();
         }
     }
 }
