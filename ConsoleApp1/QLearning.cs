@@ -223,7 +223,7 @@ namespace ConsoleApp1
                 }
             }
 
-            return result.stream().mapToInt(i->i).toArray();
+            return result.ToArray();
         }
 
         private double maxQ(int nextState)
@@ -276,7 +276,7 @@ namespace ConsoleApp1
             for (int i = 0; i < Q.Length; i++)
             {
                 Console.WriteLine("From state " + i + ":  ");
-                for (int j = 0; j < Q[,].Length; j++)
+                for (int j = 0; j < Q.Length; j++)
                 {
                     Console.WriteLine(String.Format("{0:0.00}", Q[i,j]) + " ");
                 }
