@@ -11,19 +11,8 @@ namespace ConsoleApp1
     {
         static void Main(String[] args)
         {
-            QLearning ql = new QLearning();
+            int matrizCasas = [5, 10];
 
-            ql.init();
-            Console.WriteLine("teste");
-            ql.calculateQ();
-            Console.WriteLine("teste");
-            Console.ReadLine();
-            ql.printQ();
-            Console.WriteLine("teste");
-            Console.ReadLine();
-            ql.printPolicy();
-            Console.WriteLine("teste");
-            Console.ReadLine();
         }
     }
 }
