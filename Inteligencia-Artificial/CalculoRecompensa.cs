@@ -21,10 +21,9 @@ namespace Inteligencia_Artificial
             String x = a.ToString(), y = b.ToString();
             List<double> recompensa = new List<double>();
             int escolhido;
-            Recompensas valorRecompensa = new Recompensas();
 
             int movimento = Int32.Parse(x + y);
-            if (movimento == 0 || movimento == 49 || movimento == 9 || movimento == 40)
+            if (movimento == 0 || movimento == 49 )
             {
 
                 if (movimento + 10 < 49)
@@ -41,6 +40,28 @@ namespace Inteligencia_Artificial
                 else
                     escolhido = 1;
 
+            }
+            else if (movimento == 9)
+            {
+                
+                recompensa.Add(valorRecompensa.matrizRecompensa[a, b, movimento + 10]);
+                recompensa.Add(valorRecompensa.matrizRecompensa[a, b, movimento - 1]);
+
+                if (recompensa[0] > recompensa[1])
+                    escolhido = 0;
+                else
+                    escolhido = 1;
+            }
+            else if (movimento == 40)
+            {
+
+                recompensa.Add(valorRecompensa.matrizRecompensa[a, b, movimento - 10]);
+                recompensa.Add(valorRecompensa.matrizRecompensa[a, b, movimento + 1]);
+
+                if (recompensa[0] > recompensa[1])
+                    escolhido = 0;
+                else
+                    escolhido = 1;
             }
             else if (b == 9)
             {
@@ -124,10 +145,9 @@ namespace Inteligencia_Artificial
             List<int> movimentoEscolhido = new List<int>();
             Random random = new Random();
             int escolhido, maior, posicaoA, posicaoB;
-            Recompensas valorRecompensa = new Recompensas();
 
             int movimento = Int32.Parse(x + y);
-            if (movimento == 0 || movimento == 49 || movimento == 9 || movimento == 40)
+            if (movimento == 0 || movimento == 49)
             {
 
                 if (movimento + 10 < 49) 
@@ -161,13 +181,59 @@ namespace Inteligencia_Artificial
                     else
                         maior = 1;
                     if (escolhido > 7)
-                        escolhido = maior;
-                    else
                         escolhido = random.Next(0, 1);
+                    else
+                        escolhido = maior;
                 }
 
 
 
+            }
+            else if (movimento == 9)
+            {
+
+                recompensa.Add(valorRecompensa.matrizRecompensa[a, b, movimento + 10]);
+                movimentoEscolhido.Add(movimento + 10);
+                recompensa.Add(valorRecompensa.matrizRecompensa[a, b, movimento - 1]);
+                movimentoEscolhido.Add(movimento - 1);
+
+                if (recompensa[0] == recompensa[1])
+                    escolhido = random.Next(0, 1);
+                else
+                {
+                    escolhido = random.Next(0, 10);
+                    if (recompensa[0] > recompensa[1])
+                        maior = 0;
+                    else
+                        maior = 1;
+                    if (escolhido > 7)
+                        escolhido = random.Next(0, 1);
+                    else
+                        escolhido = maior;
+                }
+            }
+            else if (movimento == 40)
+            {
+
+                recompensa.Add(valorRecompensa.matrizRecompensa[a, b, movimento - 10]);
+                movimentoEscolhido.Add(movimento - 10);
+                recompensa.Add(valorRecompensa.matrizRecompensa[a, b, movimento + 1]);
+                movimentoEscolhido.Add(movimento + 1);
+
+                if (recompensa[0] == recompensa[1])
+                    escolhido = random.Next(0, 1);
+                else
+                {
+                    escolhido = random.Next(0, 10);
+                    if (recompensa[0] > recompensa[1])
+                        maior = 0;
+                    else
+                        maior = 1;
+                    if (escolhido > 7)
+                        escolhido = random.Next(0, 1);
+                    else
+                        escolhido = maior;
+                }
             }
             else if(b == 9)
             {
@@ -194,9 +260,9 @@ namespace Inteligencia_Artificial
                         maior = 2;
 
                     if (escolhido > 7)
-                        escolhido = maior;
-                    else
                         escolhido = random.Next(0, 2);
+                    else
+                        escolhido = maior;
 
                 }
 
@@ -225,9 +291,9 @@ namespace Inteligencia_Artificial
                         maior = 2;
 
                     if (escolhido > 7)
-                        escolhido = maior;
-                    else
                         escolhido = random.Next(0, 2);
+                    else
+                        escolhido = maior;
 
                 }
             }
@@ -255,9 +321,9 @@ namespace Inteligencia_Artificial
                         maior = 2;
 
                     if (escolhido > 7)
-                        escolhido = maior;
-                    else
                         escolhido = random.Next(0, 2);
+                    else
+                        escolhido = maior;
 
                 }
             }
@@ -286,9 +352,9 @@ namespace Inteligencia_Artificial
                         maior = 2;
 
                     if (escolhido > 7)
-                        escolhido = maior;
-                    else
                         escolhido = random.Next(0, 2);
+                    else
+                        escolhido = maior;
 
                 }
             }
@@ -321,9 +387,9 @@ namespace Inteligencia_Artificial
                         maior = 3;
 
                     if (escolhido > 7)
-                        escolhido = maior;
-                    else
                         escolhido = random.Next(0, 3);
+                    else
+                        escolhido = maior;
 
                 }
             }

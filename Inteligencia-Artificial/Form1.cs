@@ -46,7 +46,7 @@ namespace Inteligencia_Artificial
                     posicao40.Checked = true;
                     posicaoA = 4;
                     posicaoB = 0;
-                    MessageBox.Show("Chegou");
+                    //MessageBox.Show("Chegou");
                 }
 
                 posicao = calculoRecompensas.movimento(posicaoA, posicaoB);
