@@ -1,6 +1,0 @@
-C:\Users\rfagu\Documents\GitHub\Inteligencia-Artificial\ConsoleApp1\obj\Debug\Learning.csprojAssemblyReference.cache
-C:\Users\rfagu\Documents\GitHub\Inteligencia-Artificial\ConsoleApp1\bin\Debug\ConsoleApp1.exe.config
-C:\Users\rfagu\Documents\GitHub\Inteligencia-Artificial\ConsoleApp1\bin\Debug\ConsoleApp1.exe
-C:\Users\rfagu\Documents\GitHub\Inteligencia-Artificial\ConsoleApp1\bin\Debug\ConsoleApp1.pdb
-C:\Users\rfagu\Documents\GitHub\Inteligencia-Artificial\ConsoleApp1\obj\Debug\ConsoleApp1.exe
-C:\Users\rfagu\Documents\GitHub\Inteligencia-Artificial\ConsoleApp1\obj\Debug\ConsoleApp1.pdb

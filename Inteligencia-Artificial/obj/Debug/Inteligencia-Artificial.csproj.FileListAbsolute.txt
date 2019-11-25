@@ -1,0 +1,9 @@
+C:\Users\rfagu\source\repos\Inteligencia-Artificial\Inteligencia-Artificial\bin\Debug\Inteligencia-Artificial.exe.config
+C:\Users\rfagu\source\repos\Inteligencia-Artificial\Inteligencia-Artificial\bin\Debug\Inteligencia-Artificial.exe
+C:\Users\rfagu\source\repos\Inteligencia-Artificial\Inteligencia-Artificial\bin\Debug\Inteligencia-Artificial.pdb
+C:\Users\rfagu\source\repos\Inteligencia-Artificial\Inteligencia-Artificial\obj\Debug\Inteligencia-Artificial.csprojAssemblyReference.cache
+C:\Users\rfagu\source\repos\Inteligencia-Artificial\Inteligencia-Artificial\obj\Debug\Inteligencia_Artificial.Form1.resources
+C:\Users\rfagu\source\repos\Inteligencia-Artificial\Inteligencia-Artificial\obj\Debug\Inteligencia_Artificial.Properties.Resources.resources
+C:\Users\rfagu\source\repos\Inteligencia-Artificial\Inteligencia-Artificial\obj\Debug\Inteligencia-Artificial.csproj.GenerateResource.cache
+C:\Users\rfagu\source\repos\Inteligencia-Artificial\Inteligencia-Artificial\obj\Debug\Inteligencia-Artificial.exe
+C:\Users\rfagu\source\repos\Inteligencia-Artificial\Inteligencia-Artificial\obj\Debug\Inteligencia-Artificial.pdb
